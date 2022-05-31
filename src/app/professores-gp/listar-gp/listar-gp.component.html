@@ -1,0 +1,25 @@
+<p>listar works!</p>
+
+
+<div class="row float-end">
+  <button class="btn btn-success" routerLink="/professores-gp/criar-gp"> Criar +</button>
+</div>
+
+<table class="table">
+    <tr>
+        <th> ID </th>
+        <th> Nome </th>
+        <th> Email </th>
+        <th> Ações </th>
+    </tr>
+    <tr *ngFor="let p of professores">
+        <td> {{ p.id }} </td>
+        <td> {{ p.nome }} </td>
+        <td> {{ p.email }} </td>
+        <td>
+          <button class="btn btn-outline-info" [routerLink]="['/professores-gp/editar', p.id]">Editar</button>
+          <button class="btn btn-outline-danger" (click)="onDelete(p.id)">Deletar</button>
+        </td>
+    </tr>
+
+</table>
